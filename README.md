@@ -1,1 +1,1 @@
-# passport-auth
+### Exercise for The Odin Project about Node, Express, MongoDB, PassportJS and BcryptJS.
