@@ -26,7 +26,7 @@ const app = express();
 app.set('views', __dirname);
 app.set('view engine', 'ejs');
 
-app.use(session({ secret: 'cats', resace: false, saveUninitialized: true }));
+app.use(session({ secret: 'cats', resave: false, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.urlencoded({ extended: false }));
@@ -38,7 +38,7 @@ passport.use(
       if (!user) {return done(null, false, {message: 'Incorrect username'})};
       bcrypt.compare(password, user.password, (err, res) => {
         if (res) {return done(null, user)};
-        if (err) {return done(null , false, {message: 'Incorrect username'})};
+        if (err) {return done(null , false, {message: 'Incorrect password'})};
       });
     });
   })
